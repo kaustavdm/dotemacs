@@ -51,6 +51,10 @@
 ;; Stop creating backups
 (setq make-backup-files nil)
 
+;; Changelog configuration
+(setq user-mail-address "kaustav.dasmodak@yahoo.co.in")  ;; default: user@host
+(setq change-log-default-name "CHANGELOG")   ;; default: ChangeLog
+
 ;; -------------------------------
 ;; Setup packages
 ;; -------------------------------
@@ -225,6 +229,15 @@
          (t
           (rename-file filename new-name t)
           (set-visited-file-name new-name t t)))))))
+
+;; Toggle JS2 indent: Source: http://www.ianoxley.com/blog/2013/11/22/toggling-javascript-indentation/
+(defun js2-toggle-indent ()
+  (interactive)
+  (setq js-indent-level (if (= js2-basic-offset 2) 4 2))
+  (setq js2-indent-level (if (= js2-basic-offset 2) 4 2))
+  (setq js2-basic-offset (if (= js2-basic-offset 2) 4 2))
+  (message "js2-indent-level, and js2-basic-offset set to %d"
+           js2-basic-offset))
 
 ;; --------------------------------------------------
 ;; Keybindings
