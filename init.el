@@ -204,7 +204,7 @@
 ;; Sublimity config
 (require 'sublimity)
 (require 'sublimity-scroll)
-(require 'sublimity-map)
+;; (require 'sublimity-map)
 (setq sublimity-scroll-weight 4)
 (setq sublimity-scroll-drift-length 2)
 (sublimity-mode 1)
