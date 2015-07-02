@@ -106,7 +106,8 @@
  'flycheck
  'diff-hl
  'undo-tree
- 'monokai-theme)
+ 'monokai-theme
+ 'sublimity)
 
 ;; -------------------------------------------------
 ;; Package configurations
@@ -198,6 +199,14 @@
 ;; Didd--hl
 (setq diff-hl-fringe-bmp-function 'diff-hl-fringe-bmp-from-type)
 (global-diff-hl-mode 1)
+
+;; Sublimity config
+(require 'sublimity)
+(require 'sublimity-scroll)
+(require 'sublimity-map)
+(setq sublimity-scroll-weight 4)
+(setq sublimity-scroll-drift-length 2)
+(sublimity-mode 1)
 
 ;; --------------------------------------------------
 ;; Custom functions
