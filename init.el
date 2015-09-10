@@ -110,7 +110,8 @@
  'diff-hl
  'undo-tree
  'monokai-theme
- 'multiple-cursors)
+ 'multiple-cursors
+ 'editorconfig)
 
 ;; -------------------------------------------------
 ;; Package configurations
