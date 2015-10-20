@@ -111,7 +111,8 @@
  'undo-tree
  'monokai-theme
  'multiple-cursors
- 'editorconfig)
+ 'editorconfig
+ 'go-mode)
 
 ;; -------------------------------------------------
 ;; Package configurations
