@@ -112,7 +112,8 @@
  'monokai-theme
  'multiple-cursors
  'editorconfig
- 'go-mode)
+ 'go-mode
+ 'go-autocomplete)
 
 ;; -------------------------------------------------
 ;; Package configurations
