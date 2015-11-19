@@ -113,7 +113,14 @@
  'multiple-cursors
  'editorconfig
  'go-mode
- 'go-autocomplete)
+ 'go-autocomplete
+ 'go-complete
+ 'go-projectile
+ 'go-rename
+ 'go-stacktracer
+ 'go-errcheck
+ 'go-playground
+ 'golint)
 
 ;; -------------------------------------------------
 ;; Package configurations
