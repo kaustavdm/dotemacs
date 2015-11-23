@@ -227,7 +227,7 @@
 
 ;; Line numbers
 (add-hook 'prog-mode-hook 'linum-mode)
-(setq linum-format "%d ")
+(setq linum-format "%4d ")
 
 ;; Go mode
 (defun my-go-mode-hook ()
