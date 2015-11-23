@@ -7,9 +7,14 @@
 ;; -------------------------------------------------
 
 ;; Scrollbars, menubars, toolbars. Hide'em
-(scroll-bar-mode -1)
+(if (display-graphic-p)
+    (progn
+      (tool-bar-mode -1)
+      (scroll-bar-mode -1)
+      (mouse-wheel-mode t)))
+
+;; Remove menu bar
 (menu-bar-mode -1)
-(tool-bar-mode -1)
 
 ;; Base text mode and other configuration
 (setq inhibit-startup-message t)
@@ -23,9 +28,6 @@
 ;; Set paren-mode and transient-mark-mode
 (show-paren-mode t)
 (transient-mark-mode t)
-
-;; Let noobs use this editor
-(mouse-wheel-mode t)
 
 ;; Change behaviour of yes or no
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -89,6 +91,7 @@
 
 ;; Install packages
 (ensure-package-installed
+ 'exec-path-from-shell
  'magit
  'auto-complete
  'js2-mode
@@ -127,6 +130,9 @@
 
 ;; Theme
 (load-theme 'monokai t)
+
+;; Shell path initalize
+(exec-path-from-shell-initialize)
 
 ;;; auto complete
 (require 'auto-complete-config)
@@ -195,7 +201,7 @@
 ;; Whitespace
 (require 'whitespace)
 (setq whitespace-line-column 120) ;; limit line length
-(setq whitespace-style '(face tabs empty trailing lines-tail tab-mark))
+(setq whitespace-style '(face tabs empty trailing space-before-tab space-after-tab))
 (add-hook 'prog-mode-hook 'whitespace-mode)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (add-hook 'before-save-hook 'whitespace-cleanup)
@@ -208,7 +214,7 @@
 ;; Electric pair mode
 (add-hook 'prog-mode-hook 'electric-pair-mode)
 
-;; Didd--hl
+;; Diff--hl
 (setq diff-hl-fringe-bmp-function 'diff-hl-fringe-bmp-from-type)
 (global-diff-hl-mode 1)
 
@@ -218,6 +224,20 @@
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+
+;; Line numbers
+(add-hook 'prog-mode-hook 'linum-mode)
+(setq linum-format "%d ")
+
+;; Go mode
+(defun my-go-mode-hook ()
+  ; Use goimports instead of go-fmt
+  (setq gofmt-command "goimports")
+  ; Call Gofmt before saving
+  (add-hook 'before-save-hook 'gofmt-before-save)
+  ; Godef jump key binding
+  (local-set-key (kbd "M-.") 'godef-jump))
+(add-hook 'go-mode-hook 'my-go-mode-hook)
 
 ;; OSX specific settings. Source: Emacs Prelude (https://github.com/bbatsov/prelude)
 (when (eq system-type 'darwin)
