@@ -40,7 +40,7 @@
 (delete-selection-mode 1)
 
 ;; Set font
-(set-frame-font "Consolas 11")
+(set-frame-font "Consolas 12")
 
 ;; more useful frame title, that show either a file or a
 ;; buffer name (if the buffer isn't visiting a file)
