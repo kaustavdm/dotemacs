@@ -26,3 +26,4 @@ savefile/
 projectile-bookmarks.eld
 session*
 ac-comphist.dat
+.mc-lists.el
