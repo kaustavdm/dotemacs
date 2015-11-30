@@ -17,4 +17,6 @@ These are my new set of configurations, partly inspired by the choices made in E
     $ sudo npm install -g jslint
     ```
 
-3. Run `emacs`. It will ask you to install missing packages. Say "yes" to all. Make sure you are connected to the internet at this point.
+3. Copy `./custom/env-custom-sample.el` to `./custom/env-custom.el`, and adjust values in `env-custom.el`.
+
+4. Run `emacs`. It will install missing packages. Make sure you are connected to the internet at this point.
