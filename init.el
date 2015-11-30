@@ -133,6 +133,10 @@
 
 ;; Shell path initalize
 (exec-path-from-shell-initialize)
+(add-to-list 'load-path "~/.emacs.d/custom/")
+
+;; Make sure to copy "./custom/env-custom-sample.el" to "./custom/env-custom.el"
+(require 'env-custom)
 
 ;;; auto complete
 (require 'auto-complete-config)
