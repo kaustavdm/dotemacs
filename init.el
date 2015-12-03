@@ -33,6 +33,7 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 
 ;; Indentation
+(setq default-tab-width 4)
 (setq tab-width 4)
 (setq-default indent-tabs-mode nil)
 
