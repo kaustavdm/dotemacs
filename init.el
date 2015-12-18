@@ -25,6 +25,10 @@
 (column-number-mode t)
 (size-indication-mode t)
 
+;; Enable windmove
+(require 'windmove)
+(windmove-default-keybindings 'super)
+
 ;; Set paren-mode and transient-mark-mode
 (show-paren-mode t)
 (transient-mark-mode t)
