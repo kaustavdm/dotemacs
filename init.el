@@ -67,6 +67,10 @@
 (setq user-mail-address "kaustav.dasmodak@yahoo.co.in")  ;; default: user@host
 (setq change-log-default-name "CHANGELOG")   ;; default: ChangeLog
 
+;; Startup *scratch* buffer
+(setq initial-major-mode 'text-mode)
+(setq initial-scratch-message "// Use this buffer for notes\n// Find files   : C-x C-f\n// Recent files : C-p f\n\n")
+
 ;; -------------------------------
 ;; Setup packages
 ;; -------------------------------
