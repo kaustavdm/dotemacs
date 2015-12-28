@@ -69,7 +69,7 @@
 
 ;; Startup *scratch* buffer
 (setq initial-major-mode 'text-mode)
-(setq initial-scratch-message "// Use this buffer for notes\n// Find files   : C-x C-f\n// Recent files : C-p f\n\n")
+(setq initial-scratch-message "// Use this buffer for notes\n// Find files   : C-x C-f\n// Recent files : C-c f\n\n")
 
 ;; -------------------------------
 ;; Setup packages
