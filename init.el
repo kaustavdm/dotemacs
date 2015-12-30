@@ -102,10 +102,8 @@
 (ensure-package-installed
  'exec-path-from-shell
  'magit
- 'auto-complete
  'js2-mode
  'skewer-mode
- 'ac-js2
  'json-mode
  'web-mode
  'markdown-mode
@@ -117,21 +115,26 @@
  'helm-projectile
  'php-mode
  'rust-mode
+ 'racer
+ 'company-racer
  'flycheck
+ 'flycheck-rust
  'diff-hl
  'undo-tree
  'monokai-theme
  'multiple-cursors
  'editorconfig
  'go-mode
- 'go-autocomplete
- 'go-complete
  'go-projectile
  'go-rename
  'go-stacktracer
  'go-errcheck
  'go-playground
- 'golint)
+ 'golint
+ 'company
+ 'company-go
+ 'company-web
+ 'company-tern)
 
 ;; -------------------------------------------------
 ;; Package configurations
@@ -147,24 +150,23 @@
 ;; Make sure to copy "./custom/env-custom-sample.el" to "./custom/env-custom.el"
 (require 'env-custom)
 
-;;; auto complete
-(require 'auto-complete-config)
-(global-auto-complete-mode t)
-(set-default 'ac-sources
-             '(ac-source-imenu
-               ac-source-dictionary
-               ac-source-words-in-buffer
-               ac-source-words-in-same-mode-buffers
-               ac-source-words-in-all-buffer))
-(setq ac-set-trigger-key "TAB")
-(setq ac-set-trigger-key "<tab>")
-(setq ac-auto-start 2)
+;;; company-mode config
+(global-company-mode)
+(setq company-idle-delay 0.3)
+(setq company-begin-commands '(self-insert-command))
+(setq company-minimum-prefix-length 1)
+(setq company-tooltip-align-annotations t)
+(setq company-tooltip-limit 20)
+(global-set-key (kbd "TAB") #'company-indent-or-complete-common)
+
+;; Rust mode
+(add-hook 'rust-mode-hook #'racer-mode)
+(add-hook 'racer-mode-hook #'eldoc-mode)
 
 ;; JS2 mode
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
-(add-hook 'js2-mode-hook 'ac-js2-mode)
-(setq ac-js2-evaluate-calls t)
-(setq js2-highlight-level 3)
+(setq js2-highlight-level 2)
+(add-to-list 'company-backends 'company-tern) ; Tern mode for company
 
 ;; PHP mode
 (add-to-list 'auto-mode-alist '("\\.inc$" . php-mode)) ;; - For Drupal
@@ -185,9 +187,15 @@
 (setq web-mode-code-indent-offset 4)
 (setq web-mode-enable-comment-keywords t)
 (setq web-mode-enable-current-element-highlight t)
+(add-to-list 'company-backends 'company-web-html)
+(add-to-list 'company-backends 'company-web-jade)
+(add-to-list 'company-backends 'company-web-slim)
+(add-hook 'web-mode-hook (lambda ()
+                           (set (make-local-variable 'company-backends) '(company-web-html))
+                           (company-mode t)))
 
 ;; CSS mode
-(setq css-indent-offset 2)
+(setq css-indent-offset 4)
 
 ;; JSON mode
 (add-to-list 'auto-mode-alist '("\\.json\\'" . json-mode))
@@ -309,6 +317,11 @@
   (setq js2-basic-offset (if (= js2-basic-offset 2) 4 2))
   (message "js2-indent-level, and js2-basic-offset set to %d"
            js2-basic-offset))
+
+(defun css-toggle-indent ()
+  (interactive)
+  (setq css-indent-offset (if (= css-indent-offset 2) 4 2))
+  (message "css-indent-offset set to %d" css-indent-offset))
 
 ;; --------------------------------------------------
 ;; Keybindings
