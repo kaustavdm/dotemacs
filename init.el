@@ -79,6 +79,8 @@
 (require 'package)
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.org/packages/") t)
+(add-to-list 'package-archives
+             '("marmalade" . "http://marmalade-repo.org/packages/") t)
 (package-initialize)
 
 ;; Install packages
@@ -114,9 +116,9 @@
  'helm
  'helm-projectile
  'php-mode
+ 'php-extras
  'rust-mode
  'racer
- 'company-racer
  'flycheck
  'flycheck-rust
  'diff-hl
@@ -134,7 +136,9 @@
  'company
  'company-go
  'company-web
- 'company-tern)
+ 'company-tern
+ 'company-jedi
+ 'company-racer)
 
 ;; -------------------------------------------------
 ;; Package configurations
@@ -259,6 +263,12 @@
   ; Godef jump key binding
   (local-set-key (kbd "M-.") 'godef-jump))
 (add-hook 'go-mode-hook 'my-go-mode-hook)
+
+;; Company Jedi - for Python
+(defun my/python-mode-hook ()
+    (add-to-list 'company-backends 'company-jedi))
+
+(add-hook 'python-mode-hook 'my/python-mode-hook)
 
 ;; OSX specific settings. Source: Emacs Prelude (https://github.com/bbatsov/prelude)
 (when (eq system-type 'darwin)
