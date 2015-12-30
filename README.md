@@ -4,38 +4,38 @@ These are my new set of configurations, partly inspired by the choices made in E
 
 ## Install
 
-1. Clone the repository
+1. **Clone the repository**
 
     ```bash
     $ git clone git@github.com:kaustavdm/dotemacs
     ```
 
-2. Set-up symlink
+2. **Set-up symlink**
 
     ```bash
     $ ln -s <path-to>/dotemacs ~/.emacs.d
     ```
 
-3. Set-up JavaScript dependencies
+3. **Set-up JavaScript dependencies**
 
     ```bash
     $ sudo npm install -g jslint tern
     ```
 
-4. Set-up Go dependencies
+4. **Set-up Go dependencies**
 
-- Install Golang
-- Set `GOPATH` environment variable
-- Install Gocode: `$ go get -u github.com/nsf/gocode`.
-- Make sure `gocode` executible is on `PATH`.
+    - Install Golang
+    - Set `GOPATH` environment variable
+    - Install Gocode: `$ go get -u github.com/nsf/gocode`.
+    - Make sure `gocode` executible is on `PATH`.
 
-5. Set-up Rust dependencies
+5. **Set-up Rust dependencies**
 
-- [Install Rust](https://www.rust-lang.org/install.html)
-- Download Rust sources and set `RUST_SRC_PATH` environment variable to the `./src` directory in the Rust source.
-- Install Racer: `$ cargo install --git 'https://github.com/phildawes/racer.git'`
-- Make sure the `racer` executible is on `PATH`.
+    - [Install Rust](https://www.rust-lang.org/install.html)
+    - Download Rust sources and set `RUST_SRC_PATH` environment variable to the `./src` directory in the Rust source.
+    - Install Racer: `$ cargo install --git 'https://github.com/phildawes/racer.git'`
+    - Make sure the `racer` executible is on `PATH`.
 
-6. Copy `./custom/env-custom-sample.el` to `./custom/env-custom.el`, and adjust values in `env-custom.el`.
+6. **Copy**: `./custom/env-custom-sample.el` to `./custom/env-custom.el`, and adjust values in `env-custom.el`.
 
-7. Run `emacs`. It will install missing packages. Make sure you are connected to the internet at this point.
+7. **Run `emacs`**. It will install missing packages. Make sure you are connected to the internet at this point.
