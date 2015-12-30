@@ -6,21 +6,21 @@ These are my new set of configurations, partly inspired by the choices made in E
 
 1. Clone the repository
 
-```bash
-$ git clone git@github.com:kaustavdm/dotemacs
-```
+    ```bash
+    $ git clone git@github.com:kaustavdm/dotemacs
+    ```
 
 2. Set-up symlink
 
-```bash
-$ ln -s <path-to>/dotemacs ~/.emacs.d
-```
+    ```bash
+    $ ln -s <path-to>/dotemacs ~/.emacs.d
+    ```
 
 3. Set-up JavaScript dependencies
 
-```bash
-$ sudo npm install -g jslint tern
-```
+    ```bash
+    $ sudo npm install -g jslint tern
+    ```
 
 4. Set-up Go dependencies
 
