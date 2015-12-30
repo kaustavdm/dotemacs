@@ -103,8 +103,11 @@
 ;; Install packages
 (ensure-package-installed
  'exec-path-from-shell
+ 'yasnippet
+ 'go-snippets
  'magit
  'js2-mode
+ 'js2-refactor
  'skewer-mode
  'json-mode
  'web-mode
@@ -154,6 +157,10 @@
 ;; Make sure to copy "./custom/env-custom-sample.el" to "./custom/env-custom.el"
 (require 'env-custom)
 
+;; YASnippets
+(yas-reload-all)
+(add-hook 'prog-mode-hook #'yas-minor-mode)
+
 ;;; company-mode config
 (global-company-mode)
 (setq company-idle-delay 0.3)
@@ -170,7 +177,9 @@
 ;; JS2 mode
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (setq js2-highlight-level 2)
+(add-hook 'js2-mode-hook #'js2-refactor-mode)
 (add-to-list 'company-backends 'company-tern) ; Tern mode for company
+(js2r-add-keybindings-with-prefix "C-c C-r")
 
 ;; PHP mode
 (add-to-list 'auto-mode-alist '("\\.inc$" . php-mode)) ;; - For Drupal
