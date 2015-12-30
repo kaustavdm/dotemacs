@@ -1,6 +1,6 @@
 # Kaustav's Emacs configurations
 
-These are my new set of configurations, partly inspired by the choices made in Emacs Prelude, but mostly to suite web and JavaScript development.
+These are my new set of configurations, initially inspired by the choices made in Emacs Prelude. It is focused on getting rich, but lightweight, editing experience in JavaScript, Golang and Rust.
 
 ## Install
 
