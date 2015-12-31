@@ -102,6 +102,7 @@
 ;; Install packages
 (ensure-package-installed
  'exec-path-from-shell
+ 'dash
  'yasnippet
  'magit
  'js2-mode
