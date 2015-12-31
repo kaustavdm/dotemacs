@@ -103,7 +103,6 @@
 (ensure-package-installed
  'exec-path-from-shell
  'yasnippet
- 'go-snippets
  'magit
  'js2-mode
  'js2-refactor
