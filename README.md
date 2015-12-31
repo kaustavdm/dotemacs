@@ -22,6 +22,12 @@ These are my new set of configurations, initially inspired by the choices made i
     $ sudo npm install -g aspell jslint tern
     ```
 
+    a. **If you are on Fedora, additionally install:**
+
+    ```bash
+    $ sudo dnf install aspell-en
+    ```
+
 4. **Set-up Go dependencies**
 
     - Install Golang

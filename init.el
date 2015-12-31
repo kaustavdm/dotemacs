@@ -180,6 +180,18 @@
     nil))
 (setq yas-prompt-functions '(yas-helm-prompt))
 
+;; Flyspell config
+(cond
+ ((executable-find "aspell")
+  (setq ispell-program-name "aspell")
+  (setq ispell-extra-args '("--sug-mode=ultra" "--lang=en_GB")))
+ ((executable-find "hunspell")
+  (setq ispell-program-name "hunspell")
+  (setq ispell-extra-args '("-d en_GB")))
+ )
+(add-hook 'prog-mode-hook 'flyspell-prog-mode)
+(add-hook 'text-mode-hook 'flyspell-mode)
+
 ;;; company-mode config
 (global-company-mode)
 (setq company-idle-delay 0.3)
