@@ -16,10 +16,10 @@ These are my new set of configurations, initially inspired by the choices made i
     $ ln -s <path-to>/dotemacs ~/.emacs.d
     ```
 
-3. **Set-up JavaScript dependencies**
+3. **Set-up dependencies available on npm**
 
     ```bash
-    $ sudo npm install -g jslint tern
+    $ sudo npm install -g aspell jslint tern
     ```
 
 4. **Set-up Go dependencies**
