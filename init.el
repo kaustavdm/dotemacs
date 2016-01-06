@@ -334,6 +334,10 @@
 ;; Yaml mode
 (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
 
+;; Editorconfig
+(require 'editorconfig)
+(editorconfig-mode 1)
+
 ;; --------------------------------------------------
 ;; Custom functions
 ;; --------------------------------------------------
