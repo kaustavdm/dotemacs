@@ -142,7 +142,8 @@
  'company-tern
  'company-jedi
  'company-racer
- 'yaml-mode)
+ 'yaml-mode
+ 'toml-mode)
 
 ;; -------------------------------------------------
 ;; Package configurations
