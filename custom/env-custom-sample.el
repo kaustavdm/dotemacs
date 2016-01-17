@@ -10,6 +10,9 @@
 (setenv "GOPATH" "/Users/kaustavd/src/go-workspace")
 (setenv "GOROOT" "/usr/local/go")
 
+(setq racer-cmd "/<path-to>/.cargo/bin/racer")
+(setq racer-rust-src-path "/<path-to>/rust-1.5.0/src")
+
 ;; ---- Do not edit below ----
 
 (provide 'env-custom)
