@@ -121,6 +121,7 @@
  'php-mode
  'php-extras
  'rust-mode
+ 'rustfmt
  'racer
  'flycheck
  'flycheck-rust
@@ -207,6 +208,8 @@
 ;; Rust mode
 (add-hook 'rust-mode-hook #'racer-mode)
 (add-hook 'racer-mode-hook #'eldoc-mode)
+(add-hook 'rust-mode-hook (lambda () (local-set-key (kbd "C-c C-f") #'rustfmt-format-buffer)))
+(add-hook 'rust-mode-hook #'rustfmt-enable-on-save)
 
 ;; JS2 mode
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
