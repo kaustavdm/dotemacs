@@ -33,6 +33,7 @@ These are my new set of configurations, initially inspired by the choices made i
     - Install Golang
     - Set `GOPATH` environment variable
     - Install Gocode: `$ go get -u github.com/nsf/gocode`.
+    - Install Golint: `$ go get -u github.com/golang/lint`.
     - Make sure `gocode` executible is on `PATH`.
 
 5. **Set-up Rust dependencies**
