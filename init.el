@@ -137,6 +137,7 @@
  'go-errcheck
  'go-playground
  'golint
+ 'tern
  'company
  'company-go
  'company-web
@@ -215,8 +216,9 @@
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (setq js2-highlight-level 2)
 (add-hook 'js2-mode-hook #'js2-refactor-mode)
+(add-hook 'js2-mode-hook #'tern-mode)
 (add-to-list 'company-backends 'company-tern) ; Tern mode for company
-(js2r-add-keybindings-with-prefix "C-c C-r")
+(js2r-add-keybindings-with-prefix "C-c x")
 
 ;; PHP mode
 (add-to-list 'auto-mode-alist '("\\.inc$" . php-mode)) ;; - For Drupal
