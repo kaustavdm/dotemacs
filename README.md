@@ -34,15 +34,21 @@ These are my new set of configurations, initially inspired by the choices made i
     - Set `GOPATH` environment variable
     - Install Gocode: `$ go get -u github.com/nsf/gocode`.
     - Install Golint: `$ go get -u github.com/golang/lint`.
-    - Make sure `gocode` executible is on `PATH`.
+    - Install Gorename: `$ go get golang.org/x/tools/cmd/gorename`.
+    - Make sure `gocode`, `godef`, `golint` and `gorename` executibles are on `PATH`.
 
 5. **Set-up Rust dependencies**
 
     - [Install Rust](https://www.rust-lang.org/install.html)
     - Download Rust sources and set `RUST_SRC_PATH` environment variable to the `./src` directory in the Rust source.
-    - Install Racer: `$ cargo install --git 'https://github.com/phildawes/racer.git'`
-    - Make sure the `racer` executible is on `PATH`.
+    - Install Racer: `$ cargo install racer`
+    - Install Rustfmt: `$ cargo install rustfmt`
+    - Make sure the `racer` and `rustfmt` executibles are on `PATH`.
 
-6. **Copy**: `./custom/env-custom-sample.el` to `./custom/env-custom.el`, and adjust values in `env-custom.el`.
+6. **Install Adobe Source Code Pro font**
 
-7. **Run `emacs`**. It will install missing packages. Make sure you are connected to the internet at this point.
+    - Download and install the font from [Source Code Pro releases](https://github.com/adobe-fonts/source-code-pro/releases/latest).
+
+7. **Copy**: `./custom/env-custom-sample.el` to `./custom/env-custom.el`, and adjust values in `env-custom.el`.
+
+8. **Run `emacs`**. It will install missing packages. Make sure you are connected to the internet at this point.
