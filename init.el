@@ -121,7 +121,6 @@
  'php-mode
  'php-extras
  'rust-mode
- 'rustfmt
  'racer
  'flycheck
  'flycheck-rust
