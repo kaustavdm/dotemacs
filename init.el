@@ -47,6 +47,9 @@
 ;; Set font
 (set-frame-font "Source Code Pro 11")
 
+;; Do not test recent files on startup
+(setq recentf-keep '(file-remote-p file-readable-p))
+
 ;; more useful frame title, that show either a file or a
 ;; buffer name (if the buffer isn't visiting a file)
 (setq frame-title-format
@@ -104,7 +107,6 @@
 (ensure-package-installed
  'exec-path-from-shell
  'dash
- 'yasnippet
  'magit
  'js2-mode
  'js2-refactor
@@ -160,39 +162,11 @@
 ;; Make sure to copy "./custom/env-custom-sample.el" to "./custom/env-custom.el"
 (require 'env-custom)
 
-;; YASnippets
-(require 'yasnippet)
-(yas-global-mode 1)
-(defun yas-helm-prompt (prompt choices &optional display-fn)
-  "Use helm to select a snippet. Put this into `yas-prompt-functions.'"
-  (interactive)
-  (setq display-fn (or display-fn 'identity))
-  (if (require 'helm-config)
-      (let (tmpsource cands result rmap)
-        (setq cands (mapcar (lambda (x) (funcall display-fn x)) choices))
-        (setq rmap (mapcar (lambda (x) (cons (funcall display-fn x) x)) choices))
-        (setq tmpsource
-              (list
-               (cons 'name prompt)
-               (cons 'candidates cands)
-               '(action . (("Expand" . (lambda (selection) selection))))
-               ))
-        (setq result (helm-other-buffer '(tmpsource) "*helm-select-yasnippet"))
-        (if (null result)
-            (signal 'quit "user quit!")
-          (cdr (assoc result rmap))))
-    nil))
-(setq yas-prompt-functions '(yas-helm-prompt))
-
 ;; Flyspell config
-(cond
- ((executable-find "aspell")
-  (setq ispell-program-name "aspell")
-  (setq ispell-extra-args '("--sug-mode=ultra" "--lang=en_GB")))
- ((executable-find "hunspell")
-  (setq ispell-program-name "hunspell")
-  (setq ispell-extra-args '("-d en_GB")))
- )
+(setq ispell-dictionary "english")
+(setq ispell-program-name "aspell")
+(setq ispell-list-command "--list")
+(setq ispell-extra-args '("--sug-mode=fast"))
 (add-hook 'prog-mode-hook 'flyspell-prog-mode)
 (add-hook 'text-mode-hook 'flyspell-mode)
 

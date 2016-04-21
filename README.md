@@ -28,6 +28,12 @@ These are my new set of configurations, initially inspired by the choices made i
     $ sudo dnf install aspell-en
     ```
 
+    b. **If you are on OSX, additionally install:**
+
+    ```bash
+    $ brew install aspell --with-lang-en
+    ```
+
 4. **Set-up Go dependencies**
 
     - Install Golang
