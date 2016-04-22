@@ -310,7 +310,8 @@
         (setq mac-option-modifier 'meta)
         (message "Command is now bound to SUPER and Option is bound to META."))))
 
-  (global-set-key (kbd "C-c w") 'prelude-swap-meta-and-super))
+  (global-set-key (kbd "C-c w") 'prelude-swap-meta-and-super)
+  (menu-bar-mode 1))
 
 ;; Yaml mode
 (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
