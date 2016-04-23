@@ -182,8 +182,6 @@
 ;; Rust mode
 (add-hook 'rust-mode-hook #'racer-mode)
 (add-hook 'racer-mode-hook #'eldoc-mode)
-;;(add-hook 'rust-mode-hook (lambda () (local-set-key (kbd "C-c C-f") #'rust-format-buffer)))
-(add-hook 'rust-mode-hook #'rust-enable-format-on-save)
 
 ;; JS2 mode
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
