@@ -7,7 +7,7 @@ These are my new set of configurations, initially inspired by the choices made i
 1. **Clone the repository**
 
     ```bash
-    $ git clone git@github.com:kaustavdm/dotemacs
+    $ git clone git@github.com:kaustavdm/dotemacs --recursive
     ```
 
 2. **Set-up symlink**
