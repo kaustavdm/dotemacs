@@ -125,6 +125,7 @@
  'php-extras
  'rust-mode
  'racer
+ 'cargo
  'flycheck
  'flycheck-rust
  'diff-hl
@@ -183,6 +184,7 @@
 ;; Rust mode
 (add-hook 'rust-mode-hook #'racer-mode)
 (add-hook 'racer-mode-hook #'eldoc-mode)
+(add-hook 'rust-mode-hook 'cargo-minor-mode)
 
 ;; JS2 mode
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
