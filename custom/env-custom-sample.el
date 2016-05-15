@@ -7,6 +7,9 @@
 
 ;; ----- Edit below ------
 
+
+(setq user-mail-address "youremail@address.com")  ;; default: user@host
+
 (setenv "GOPATH" "/Users/kaustavd/src/go-workspace")
 (setenv "GOROOT" "/usr/local/go")
 

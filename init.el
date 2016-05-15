@@ -67,7 +67,6 @@
 (setq make-backup-files nil)
 
 ;; Changelog configuration
-(setq user-mail-address "kaustav.dasmodak@yahoo.co.in")  ;; default: user@host
 (setq change-log-default-name "CHANGELOG")   ;; default: ChangeLog
 
 ;; Startup *scratch* buffer
