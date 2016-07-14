@@ -45,10 +45,15 @@
 (delete-selection-mode 1)
 
 ;; Set font
-(set-frame-font "Source Code Pro 11")
+(set-frame-font "Source Code Pro 12")
 
 ;; Do not test recent files on startup
 (setq recentf-keep '(file-remote-p file-readable-p))
+
+;; Frame settings: For emacsclient -c
+(add-to-list 'default-frame-alist '(font . "Source Code Pro 12"))
+(add-to-list 'default-frame-alist '(menu-bar-mode . -1))
+(add-to-list 'default-frame-alist '(tool-bar-mode . -1))
 
 ;; more useful frame title, that show either a file or a
 ;; buffer name (if the buffer isn't visiting a file)
@@ -313,8 +318,7 @@
         (setq mac-option-modifier 'meta)
         (message "Command is now bound to SUPER and Option is bound to META."))))
 
-  (global-set-key (kbd "C-c w") 'prelude-swap-meta-and-super)
-  (menu-bar-mode 1))
+  (global-set-key (kbd "C-c w") 'prelude-swap-meta-and-super))
 
 ;; Yaml mode
 (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
