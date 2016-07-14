@@ -54,6 +54,8 @@
 (add-to-list 'default-frame-alist '(font . "Source Code Pro 12"))
 (add-to-list 'default-frame-alist '(menu-bar-mode . -1))
 (add-to-list 'default-frame-alist '(tool-bar-mode . -1))
+(add-to-list 'default-frame-alist '(width  . 150))
+(add-to-list 'default-frame-alist '(height . 50))
 
 ;; more useful frame title, that show either a file or a
 ;; buffer name (if the buffer isn't visiting a file)
