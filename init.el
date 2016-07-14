@@ -73,6 +73,9 @@
 (setq initial-major-mode 'text-mode)
 (setq initial-scratch-message "// Use this buffer for notes\n// Find files   : C-x C-f\n// Recent files : C-c f\n\n")
 
+;; Save buffers on focus lost
+(add-hook 'focus-out-hook (lambda () (interactive) (save-some-buffers t)))
+
 ;; -------------------------------
 ;; Setup packages
 ;; -------------------------------
