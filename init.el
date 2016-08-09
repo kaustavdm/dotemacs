@@ -157,7 +157,9 @@
  'company-jedi
  'company-racer
  'yaml-mode
- 'toml-mode)
+ 'toml-mode
+ 'haskell-mode
+ 'intero)
 
 ;; -------------------------------------------------
 ;; Package configurations
@@ -297,6 +299,9 @@
   ; Godef jump key binding
   (local-set-key (kbd "M-.") 'godef-jump))
 (add-hook 'go-mode-hook 'my-go-mode-hook)
+
+;; Haskell mode
+(add-hook 'haskell-mode-hook 'intero-mode)
 
 ;; Company Jedi - for Python
 (defun my/python-mode-hook ()

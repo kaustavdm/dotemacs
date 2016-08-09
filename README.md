@@ -51,10 +51,14 @@ These are my new set of configurations, initially inspired by the choices made i
     - Install Rustfmt: `$ cargo install rustfmt`
     - Make sure the `racer` and `rustfmt` executibles are on `PATH`.
 
-6. **Install Adobe Source Code Pro font**
+6. **Set-up Haskell dependencies**
+
+    - Install GHC, GHCi or better, install the Haskell Platform.
+
+7. **Install Adobe Source Code Pro font**
 
     - Download and install the font from [Source Code Pro releases](https://github.com/adobe-fonts/source-code-pro/releases/latest).
 
-7. **Copy**: `./custom/env-custom-sample.el` to `./custom/env-custom.el`, and adjust values in `env-custom.el`.
+8. **Copy**: `./custom/env-custom-sample.el` to `./custom/env-custom.el`, and adjust values in `env-custom.el`.
 
-8. **Run `emacs`**. It will install missing packages. Make sure you are connected to the internet at this point.
+9. **Run `emacs`**. It will install missing packages. Make sure you are connected to the internet at this point.
