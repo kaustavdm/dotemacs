@@ -130,8 +130,6 @@
  'projectile
  'helm
  'helm-projectile
- 'php-mode
- 'php-extras
  'rust-mode
  'racer
  'cargo
@@ -205,10 +203,6 @@
 (add-to-list 'company-backends 'company-tern) ; Tern mode for company
 (js2r-add-keybindings-with-prefix "C-c x")
 
-;; PHP mode
-(add-to-list 'auto-mode-alist '("\\.inc$" . php-mode)) ;; - For Drupal
-(add-to-list 'auto-mode-alist '("\\.\\(module\\|test\\|install\\|theme\\)$" . php-mode)) ;; - For Drupal
-
 ;; Web mode
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
@@ -218,6 +212,7 @@
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.ejs\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.php\\'" . web-node))
 (add-to-list 'auto-mode-alist '("/\\(views\\|html\\|theme\\|templates\\)/.*\\.php\\'" . web-mode))
 (setq web-mode-markup-indent-offset 4)
 (setq web-mode-css-indent-offset 2)
