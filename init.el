@@ -1,4 +1,4 @@
- ;;; Emacs configuration file
+;;; Emacs configuration file
 
 ;;; Code:
 
@@ -12,6 +12,15 @@
       (tool-bar-mode -1)
       (scroll-bar-mode -1)
       (mouse-wheel-mode t)))
+
+(defun ui-changes-for-server (_)
+  (message "Making changes for server's buffer")
+  (tool-bar-mode -1))
+
+(if (and (fboundp 'server-running-p)
+         (server-running-p))
+    (message "Server is running")
+    (add-to-list 'after-make-frame-functions #'ui-changes-for-server))
 
 ;; Remove menu bar
 (menu-bar-mode -1)
