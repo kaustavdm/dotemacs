@@ -92,6 +92,12 @@
 ;; Save buffers on focus lost
 (add-hook 'focus-out-hook (lambda () (interactive) (save-some-buffers t)))
 
+;; File encoding
+(prefer-coding-system 'utf-8)
+(set-default-coding-systems 'utf-8)
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+
 ;; -------------------------------
 ;; Setup packages
 ;; -------------------------------
