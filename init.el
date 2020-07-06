@@ -27,12 +27,14 @@
 
 ;; Base text mode and other configuration
 (setq inhibit-startup-message t)
-(setq default-major-mode 'text-mode)
+(setq default-major-mode 'markdown-mode)
 
 ;; Line and column numbers
 (line-number-mode t)
 (column-number-mode t)
 (size-indication-mode t)
+(global-hl-line-mode t) ;; highlight line
+(setq-default cursor-type 'bar) ;; Set cursor to bar
 
 ;; Enable windmove
 (require 'windmove)
@@ -54,13 +56,13 @@
 (delete-selection-mode 1)
 
 ;; Set font
-(set-frame-font "Source Code Pro 12")
+(set-frame-font "Fira Code 16")
 
 ;; Do not test recent files on startup
 (setq recentf-keep '(file-remote-p file-readable-p))
 
 ;; Frame settings: For emacsclient -c
-(add-to-list 'default-frame-alist '(font . "Source Code Pro 12"))
+(add-to-list 'default-frame-alist '(font . "Fira Code 16"))
 (add-to-list 'default-frame-alist '(menu-bar-mode . -1))
 (add-to-list 'default-frame-alist '(tool-bar-mode . -1))
 (add-to-list 'default-frame-alist '(width  . 150))
@@ -86,7 +88,7 @@
 (setq change-log-default-name "CHANGELOG")   ;; default: ChangeLog
 
 ;; Startup *scratch* buffer
-(setq initial-major-mode 'text-mode)
+(setq initial-major-mode 'markdown-mode)
 (setq initial-scratch-message "// Use this buffer for notes\n// Find files   : C-x C-f\n// Recent files : C-c f\n\n")
 
 ;; Save buffers on focus lost
@@ -127,12 +129,10 @@
 
 ;; Install packages
 (ensure-package-installed
- 'exec-path-from-shell
  's
  'dash
  'magit
  'js2-mode
- 'js2-refactor
  'skewer-mode
  'json-mode
  'web-mode
@@ -145,12 +145,10 @@
  'helm-projectile
  'rust-mode
  'racer
- 'cargo
  'flycheck
- 'flycheck-rust
  'diff-hl
  'undo-tree
- 'monokai-theme
+ 'dracula-theme
  'multiple-cursors
  'editorconfig
  'go-mode
@@ -160,27 +158,18 @@
  'go-errcheck
  'go-playground
  'golint
- 'tern
  'company
- 'company-go
- 'company-web
- 'company-tern
- 'company-jedi
- 'company-racer
  'yaml-mode
  'toml-mode
- 'haskell-mode
- 'intero)
+ 'yasnippet-snippets)
 
 ;; -------------------------------------------------
 ;; Package configurations
 ;; -------------------------------------------------
 
 ;; Theme
-(load-theme 'monokai t)
+(load-theme 'dracula t)
 
-;; Shell path initalize
-(exec-path-from-shell-initialize)
 (add-to-list 'load-path "~/.emacs.d/custom/")
 
 ;; Make sure to copy "./custom/env-custom-sample.el" to "./custom/env-custom.el"
@@ -195,7 +184,7 @@
 (add-hook 'text-mode-hook 'flyspell-mode)
 
 ;;; company-mode config
-(global-company-mode)
+(add-hook 'after-init-hook 'global-company-mode)
 (setq company-idle-delay 0.3)
 (setq company-begin-commands '(self-insert-command))
 (setq company-minimum-prefix-length 1)
@@ -204,17 +193,12 @@
 (global-set-key (kbd "TAB") #'company-indent-or-complete-common)
 
 ;; Rust mode
-(add-hook 'rust-mode-hook #'racer-mode)
-(add-hook 'racer-mode-hook #'eldoc-mode)
-(add-hook 'rust-mode-hook 'cargo-minor-mode)
+(add-hook 'rust-mode-hook
+          (lambda () (setq indent-tabs-mode nil)))
 
 ;; JS2 mode
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (setq js2-highlight-level 2)
-(add-hook 'js2-mode-hook #'js2-refactor-mode)
-(add-hook 'js2-mode-hook #'tern-mode)
-(add-to-list 'company-backends 'company-tern) ; Tern mode for company
-(js2r-add-keybindings-with-prefix "C-c x")
 
 ;; Web mode
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
@@ -232,12 +216,6 @@
 (setq web-mode-code-indent-offset 4)
 (setq web-mode-enable-comment-keywords t)
 (setq web-mode-enable-current-element-highlight t)
-(add-to-list 'company-backends 'company-web-html)
-(add-to-list 'company-backends 'company-web-jade)
-(add-to-list 'company-backends 'company-web-slim)
-(add-hook 'web-mode-hook (lambda ()
-                           (set (make-local-variable 'company-backends) '(company-web-html))
-                           (company-mode t)))
 
 ;; CSS mode
 (setq css-indent-offset 4)
@@ -307,15 +285,6 @@
   ; Godef jump key binding
   (local-set-key (kbd "M-.") 'godef-jump))
 (add-hook 'go-mode-hook 'my-go-mode-hook)
-
-;; Haskell mode
-(add-hook 'haskell-mode-hook 'intero-mode)
-
-;; Company Jedi - for Python
-(defun my/python-mode-hook ()
-    (add-to-list 'company-backends 'company-jedi))
-
-(add-hook 'python-mode-hook 'my/python-mode-hook)
 
 ;; OSX specific settings. Source: Emacs Prelude (https://github.com/bbatsov/prelude)
 (when (eq system-type 'darwin)
