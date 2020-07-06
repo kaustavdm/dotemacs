@@ -148,7 +148,7 @@
  'flycheck
  'diff-hl
  'undo-tree
- 'dracula-theme
+ 'monokai-theme
  'multiple-cursors
  'editorconfig
  'go-mode
@@ -161,27 +161,20 @@
  'company
  'yaml-mode
  'toml-mode
- 'yasnippet-snippets)
+ 'yasnippet-snippets
+ 'powerline)
 
 ;; -------------------------------------------------
 ;; Package configurations
 ;; -------------------------------------------------
 
 ;; Theme
-(load-theme 'dracula t)
+(load-theme 'monokai t)
 
 (add-to-list 'load-path "~/.emacs.d/custom/")
 
 ;; Make sure to copy "./custom/env-custom-sample.el" to "./custom/env-custom.el"
 (require 'env-custom)
-
-;; Flyspell config
-(setq ispell-dictionary "english")
-(setq ispell-program-name "aspell")
-(setq ispell-list-command "--list")
-(setq ispell-extra-args '("--sug-mode=fast"))
-(add-hook 'prog-mode-hook 'flyspell-prog-mode)
-(add-hook 'text-mode-hook 'flyspell-mode)
 
 ;;; company-mode config
 (add-hook 'after-init-hook 'global-company-mode)
@@ -275,6 +268,10 @@
 ;; Line numbers
 (add-hook 'prog-mode-hook 'linum-mode)
 (setq linum-format "%4d ")
+
+;; Powerline
+(require 'powerline)
+(powerline-default-theme)
 
 ;; Go mode
 (defun my-go-mode-hook ()
